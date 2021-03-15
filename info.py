@@ -8,17 +8,35 @@ from alive_progress import alive_bar
 
 from core.functions import find_mic_detail
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-file = f"{dir_path}/src/links.txt"
 u = []
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+file = f"{dir_path}/src/test.txt"
+
 with open(file, "r", newline=None) as f:
     with alive_bar(11088) as bar:  # declare your expected total
 
         for link in f:
-            from core.variables import *
+
+            detail = {
+                        'code': None,
+                        'name_farsi': None,
+                        'name_english': None,
+                        'brand_farsi': None,
+                        'brand_english': None,
+                        'price': None,
+                        'kind': None,
+                        'gender': None,
+                        'group': None,
+                        'country': None,
+                        'company': None,
+                        'properties': None,
+                        'guide': None,
+                        'reason': None,
+                    }
 
             url = link.replace("\n", "")
-            print(url)
+
             response = requests.get(url)
             soup = BeautifulSoup(response.content, 'html.parser')
 
@@ -29,10 +47,12 @@ with open(file, "r", newline=None) as f:
             brand_tmp = soup.find('div', class_='productExtera8').text.strip()
             detail['brand_farsi'] = brand_tmp.split('-')[0].strip()
             detail['brand_english'] = brand_tmp.split('-')[1].strip()
+            
             try:
                 detail['price'] = soup.find('div', class_='price-label').text.strip().split()[0]
             except AttributeError:
                 detail['price'] = soup.find('div', class_='off-price-label').text.split()[2]
+            
             for i in soup.find_all('div', class_='each-row'):
                 status = i.text.strip()
 
