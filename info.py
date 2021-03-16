@@ -11,7 +11,7 @@ from core.functions import find_mic_detail
 u = []
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-file = f"{dir_path}/src/test.txt"
+file = f"{dir_path}/src/link1.txt"
 
 with open(file, "r", newline=None) as f:
     with alive_bar(11088) as bar:  # declare your expected total
@@ -85,7 +85,7 @@ with open(file, "r", newline=None) as f:
             bar()                  # call after consuming one item
 
 df = pd.json_normalize(u)
-file2 = f"{dir_path}/src/done.csv"
+file2 = f"{dir_path}/src/cosmetic1.csv"
 df.to_csv(file2, index=False, encoding='utf-8')
 
 
