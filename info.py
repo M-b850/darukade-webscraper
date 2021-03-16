@@ -85,7 +85,7 @@ with open(file, "r", newline=None) as f:
             bar()                  # call after consuming one item
 
 df = pd.json_normalize(u)
-file2 = f"{dir_path}/src/cosmetic1.csv"
+file2 = f"{dir_path}/src/cosmetic2.csv"
 df.to_csv(file2, index=False, encoding='utf-8')
 
 
