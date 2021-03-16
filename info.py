@@ -11,10 +11,10 @@ from core.functions import find_mic_detail
 u = []
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-file = f"{dir_path}/src/link1.txt"
+file = f"{dir_path}/src/link2.txt"
 
 with open(file, "r", newline=None) as f:
-    with alive_bar(3729) as bar:  # declare your expected total
+    with alive_bar(3709) as bar:  # declare your expected total
 
         for link in f:
 

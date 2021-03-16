@@ -5,11 +5,11 @@ from bs4 import BeautifulSoup
 from core.functions import Links
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-file = f"{dir_path}/src/links.txt"
+file = f"{dir_path}/src/links-supplement.txt"
 
 with open(file, 'w') as f:
     # page 1 to 924
-    for i in range(1, 924):
+    for i in range(1, 389):
         print(i)
         daru_kade = Links()
         response = daru_kade.request(i)

@@ -8,7 +8,7 @@ class Links:
         self.clean_data = []
 
     def request(self, pn):  # pn is page number
-        payload = {'URL': '/products/cosmetic-100001', 'URLQS': '', 'word': '', 'Page': f'{pn}'}
+        payload = {'URL': '/products/supplement-100004', 'URLQS': '', 'word': '', 'Page': f'{pn}'}
         response = requests.post(self.url, data=payload)
         return response
 
